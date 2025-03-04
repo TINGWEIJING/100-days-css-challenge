@@ -44,6 +44,7 @@ body {
   height: 100%;
   width: 100%;
   background-color: #7ddffc;
+  animation: sky-fading 4s cubic-bezier(0.4, 0, 0.49, 1) infinite;
 }
 
 .ground {
@@ -53,6 +54,7 @@ body {
   bottom: 0%;
   z-index: 2;
   background-color: #f0de75;
+  animation: ground-fading 4s cubic-bezier(0.4, 0, 0.49, 1) infinite;
 }
 
 .sun {
@@ -61,10 +63,11 @@ body {
   height: 6%;
   background-color: #ffef00;
   border-radius: 50%;
-  transform-origin: 50% 400%;
+  transform-origin: 50% 500%;
   z-index: 1;
   top: 33%;
   left: 47%;
+  animation: sun-moving 4s cubic-bezier(0.4, 0, 0.49, 1) infinite;
 }
 
 .pyramid-left {
@@ -75,6 +78,7 @@ body {
   left: 38%;
   background-color: #f4f4f4;
   clip-path: polygon(0% 100%, 100% 100%, 50% 0%);
+  animation: pyramid-fading 4s cubic-bezier(0.4, 0, 0.49, 1) infinite;
 }
 
 .pyramid-right {
@@ -85,16 +89,118 @@ body {
   left: 49.9%;
   background-color: #dddada;
   clip-path: polygon(30% 100%, 100% 100%, 0% 0%);
+  animation: pyramid-fading 4s cubic-bezier(0.4, 0, 0.49, 1) infinite reverse;
 }
 
 .shadow {
   position: absolute;
-  height: 7%;
-  width: 25%;
+  height: 14%;
+  width: 50%;
   top: 59%;
-  left: 38%;
+  left: 25%;
   background: rgba(0, 0, 0, 0.2);
   transform-origin: 50% 0%;
-  clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
+  clip-path: polygon(25.6% 0%, 75.7% 0%, 50% 50%);
   z-index: 5;
+  animation: shadow-moving 4s cubic-bezier(0.4, 0, 0.49, 1) infinite;
+}
+
+@keyframes sky-fading {
+  0% {
+    background: #272c34;
+  }
+
+  30% {
+    background: #7ddffc;
+  }
+
+  70% {
+    background: #7ddffc;
+  }
+
+  100% {
+    background: #272c34;
+  }
+}
+
+@keyframes ground-fading {
+  0% {
+    background: #272c34;
+  }
+
+  30% {
+    background: #f0de75;
+  }
+
+  70% {
+    background: #f0de75;
+  }
+
+  100% {
+    background: #272c34;
+  }
+}
+
+@keyframes pyramid-fading {
+  0% {
+    background: #272c34;
+  }
+
+  30% {
+    background: #f4f4f4;
+  }
+
+  70% {
+    background: #dddada;
+  }
+
+  100% {
+    background: #272c34;
+  }
+}
+
+@keyframes sun-moving {
+  0% {
+    background: #f57209;
+    transform: rotate(-70deg);
+  }
+
+  30% {
+    background: #ffef00;
+    transform: rotate(-28deg);
+  }
+
+  70% {
+    background: #ffef00;
+  }
+
+  100% {
+    background: #f57209;
+    transform: rotate(70deg);
+  }
+}
+
+@keyframes shadow-moving {
+  0% {
+    transform: scaleY(0);
+    clip-path: polygon(25.6% 0%, 75.7% 0%, 100% 27%);
+  }
+
+  30% {
+    transform: scaleY(1);
+    clip-path: polygon(25.6% 0%, 75.7% 0%, 70% 50%);
+  }
+
+  55% {
+    transform: scaleY(0.4);
+  }
+
+  75% {
+    transform: scaleY(1);
+  }
+
+  100% {
+    transform: scaleY(0);
+    clip-path: polygon(25.6% 0%, 75.7% 0%, 0% 68%);
+  }
 }
