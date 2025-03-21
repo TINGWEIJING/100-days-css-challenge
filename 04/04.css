@@ -1,0 +1,60 @@
+:root {
+  /* * Custom Dimension */
+  --slide-width-height-ratio: calc(1 / 1);
+  --slide-max-height: min(100dvh, calc(100dvw / var(--slide-width-height-ratio)));
+  --slide-max-width: min(100dvw, calc(100dvh * var(--slide-width-height-ratio)));
+  --cubic-bezier-in: cubic-bezier(0.3, 1, 0.7, 1);
+}
+
+html,
+body {
+  background-color: rgb(124, 124, 124);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}
+
+.frame {
+  aspect-ratio: 1/1;
+  inset: 0px;
+  min-height: calc(var(--slide-max-height) * 0.7);
+  border-radius: 1%;
+  box-shadow: 1px 2px 10px 0px rgba(0, 0, 0, 0.3);
+  background: #e56262;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: "Courier New", "Courier", sans-serif;
+}
+
+.container {
+  aspect-ratio: 1/1;
+  height: 40%;
+  position: absolute;
+}
+
+.circle-01 {
+  aspect-ratio: 1/1;
+  height: 60%;
+  border-radius: 50%;
+  position: relative;
+  top: 20%;
+  left: 20%;
+  z-index: 1;
+  background-color: white;
+  box-shadow: 1.6cqmin 1.6cqmin 3cqmin 0.4cqmin rgba(0, 0, 0, 0.2);
+  animation: circle-01-pop 2s cubic-bezier(0.21, 0.98, 0.6, 0.99) infinite alternate;
+}
+
+@keyframes circle-01-pop {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
