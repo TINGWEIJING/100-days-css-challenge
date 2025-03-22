@@ -3,7 +3,7 @@
   --slide-width-height-ratio: calc(1 / 1);
   --slide-max-height: min(100dvh, calc(100dvw / var(--slide-width-height-ratio)));
   --slide-max-width: min(100dvw, calc(100dvh * var(--slide-width-height-ratio)));
-  --cubic-bezier-in: cubic-bezier(0.3, 1, 0.7, 1);
+  --cubic-bezier-pop: cubic-bezier(0.21, 0.98, 0.6, 0.99);
 }
 
 html,
@@ -33,25 +33,72 @@ body {
 
 .container {
   aspect-ratio: 1/1;
-  height: 40%;
-  position: absolute;
+  height: 70%;
+  position: relative;
 }
 
 .circle-01 {
   aspect-ratio: 1/1;
   height: 60%;
   border-radius: 50%;
-  position: relative;
+  position: absolute;
   top: 20%;
   left: 20%;
   z-index: 1;
   background-color: white;
   box-shadow: 1.6cqmin 1.6cqmin 3cqmin 0.4cqmin rgba(0, 0, 0, 0.2);
-  animation: circle-01-pop 2s cubic-bezier(0.21, 0.98, 0.6, 0.99) infinite alternate;
+  animation: circle-01-pop 2s var(--cubic-bezier-pop) infinite alternate;
+}
+
+.circle-02 {
+  aspect-ratio: 1/1;
+  height: 40%;
+  border-radius: 50%;
+  position: absolute;
+  top: 30%;
+  left: 30%;
+  z-index: 1;
+  background-color: white;
+  box-shadow: 1.6cqmin 1.6cqmin 3cqmin 0.4cqmin rgba(0, 0, 0, 0.2);
+  animation: circle-02-pop 2s var(--cubic-bezier-pop) infinite alternate;
+}
+
+.circle-03 {
+  aspect-ratio: 1/1;
+  height: 20%;
+  border-radius: 50%;
+  position: absolute;
+  top: 40%;
+  left: 40%;
+  z-index: 1;
+  background-color: white;
+  box-shadow: 1.6cqmin 1.6cqmin 3cqmin 0.4cqmin rgba(0, 0, 0, 0.2);
+  animation: circle-03-pop 2s var(--cubic-bezier-pop) infinite alternate;
 }
 
 @keyframes circle-01-pop {
-  0% {
+  0%,
+  10% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes circle-02-pop {
+  0%,
+  40% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes circle-03-pop {
+  0%,
+  70% {
     transform: scale(0);
   }
   100% {
