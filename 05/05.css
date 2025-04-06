@@ -102,6 +102,7 @@ body {
 
     div {
       position: relative;
+      color: #606060;
     }
 
     div:before {
@@ -129,16 +130,15 @@ body {
   .line-chart {
     flex-grow: 2;
     position: relative;
-    margin-left: 4%;
-    margin-right: 4%;
 
     .line-1,
     .line-2,
     .line-3 {
       position: absolute;
       background-color: #f2f2f2;
-      width: 100%;
+      width: 92%;
       height: 2px;
+      left: 4%;
     }
 
     .line-2 {
@@ -163,6 +163,103 @@ body {
       font-size: 1.4cqmin;
       color: #949494;
       text-align: center;
+    }
+  }
+}
+
+.data {
+  position: relative;
+  height: 100%;
+  width: calc(100% * (6 / 7));
+  left: calc(100% / 14);
+
+  svg {
+    position: absolute;
+    top: -3%;
+    left: 1%;
+    display: block;
+
+    polyline {
+      fill: none;
+      stroke: #fa7373;
+      stroke-width: 2%;
+      stroke-linecap: round;
+    }
+  }
+
+  .points {
+    position: relative;
+    height: 100%;
+    width: 100%;
+
+    [class^="point-"] {
+      position: absolute;
+      aspect-ratio: 1;
+      height: 1cqmin;
+      background-color: #fa7373;
+      border-radius: 50%;
+      cursor: pointer;
+
+      .tooltip {
+        position: absolute;
+        visibility: hidden;
+        font-size: 1.4cqmin;
+        color: white;
+        background-color: #fa7373;
+        border-radius: 20% / 20%;
+        padding: 40%;
+        left: -110%;
+        z-index: 10;
+        opacity: 0;
+        transition: transform 0.4s ease-out 0s, opacity 0.4s ease-out 0s;
+      }
+
+      .tooltip:after {
+        position: absolute;
+        display: block;
+        content: "";
+        background-color: #fa7373;
+        aspect-ratio: 1;
+        height: 1cqmin;
+        bottom: -16%;
+        left: 34%;
+        transform: rotate(45deg);
+        z-index: 9;
+      }
+    }
+
+    [class^="point-"]:hover .tooltip {
+      visibility: visible;
+      opacity: 1;
+      transform: translate(0%, -140%);
+    }
+    .point-1 {
+      left: 0%;
+      bottom: 40%;
+    }
+    .point-2 {
+      left: calc(100% * (1 / 6));
+      bottom: 50%;
+    }
+    .point-3 {
+      left: calc(100% * (2 / 6));
+      bottom: 60%;
+    }
+    .point-4 {
+      left: calc(100% * (3 / 6));
+      bottom: 50%;
+    }
+    .point-5 {
+      left: calc(100% * (4 / 6));
+      bottom: 30%;
+    }
+    .point-6 {
+      left: calc(100% * (5 / 6));
+      bottom: 70%;
+    }
+    .point-7 {
+      left: 100%;
+      bottom: 50%;
     }
   }
 }
