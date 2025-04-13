@@ -75,6 +75,29 @@ body {
 }
 
 .metrics {
-  flex-grow: 1;
+  width: 40%;
   height: 100%;
+  color: #786450;
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.5%;
+
+  & > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    background-color: #f5e8df;
+    cursor: pointer;
+
+    .value {
+      font-size: 2.6cqmin;
+      font-weight: 600;
+    }
+
+    .name {
+      font-size: 1.4cqmin;
+    }
+  }
 }
